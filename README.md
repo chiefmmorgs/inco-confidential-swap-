@@ -2,6 +2,7 @@
 
 > **Privacy-first DEX on Base Sepolia powered by Inco Network's FHE technology.**
 
+https://inco-confidential-swap.vercel.app/
 
 A decentralized exchange and private transfer application. This project demonstrates how to build confidentiality-enabled interaction on EVM chains using Inco's Fully Homomorphic Encryption (FHE).
 
