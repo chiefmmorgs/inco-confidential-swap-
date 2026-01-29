@@ -1,4 +1,4 @@
-# 🕹️ Retro Inco Confidential Swap
+# 🕹️ Inco Confidential Swap
 
 > **Privacy-first DEX on Base Sepolia powered by Inco Network's FHE technology.**
 
