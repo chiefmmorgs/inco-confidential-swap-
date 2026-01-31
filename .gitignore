@@ -1,0 +1,26 @@
+# Solana build artifacts
+target/
+.anchor/
+
+# Node modules
+node_modules/
+
+# TypeScript build
+dist/
+
+# Environment
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log

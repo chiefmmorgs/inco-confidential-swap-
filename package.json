@@ -1,0 +1,26 @@
+{
+    "name": "inco-confidential-token-solana",
+    "version": "0.1.0",
+    "description": "Confidential SPL Token Program using Inco Lightning",
+    "type": "module",
+    "scripts": {
+        "build": "anchor build",
+        "test": "anchor test",
+        "deploy": "anchor deploy --provider.cluster devnet"
+    },
+    "dependencies": {
+        "@coral-xyz/anchor": "^0.31.0",
+        "@inco/solana-sdk": "^0.0.2",
+        "@solana/web3.js": "^1.98.0"
+    },
+    "devDependencies": {
+        "@types/bn.js": "^5.1.6",
+        "@types/chai": "^5.2.1",
+        "@types/mocha": "^10.0.10",
+        "chai": "^5.2.0",
+        "dotenv": "^16.4.7",
+        "mocha": "^11.1.0",
+        "ts-mocha": "^11.1.0",
+        "typescript": "^5.8.3"
+    }
+}
