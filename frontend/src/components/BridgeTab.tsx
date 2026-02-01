@@ -90,8 +90,8 @@ export function BridgeTab() {
                 <button
                     onClick={() => setDirection("base-to-sol")}
                     className={`flex-1 py-2 border-2 text-[10px] uppercase transition-all ${direction === "base-to-sol"
-                            ? "border-[var(--neon-blue)] text-[var(--neon-blue)] bg-[var(--neon-blue)]/10"
-                            : "border-gray-700 text-gray-500"
+                        ? "border-[var(--neon-blue)] text-[var(--neon-blue)] bg-[var(--neon-blue)]/10"
+                        : "border-gray-700 text-gray-500"
                         }`}
                 >
                     Base → Solana
@@ -99,8 +99,8 @@ export function BridgeTab() {
                 <button
                     onClick={() => setDirection("sol-to-base")}
                     className={`flex-1 py-2 border-2 text-[10px] uppercase transition-all ${direction === "sol-to-base"
-                            ? "border-[var(--neon-purple)] text-[var(--neon-purple)] bg-[var(--neon-purple)]/10"
-                            : "border-gray-700 text-gray-500"
+                        ? "border-[var(--neon-purple)] text-[var(--neon-purple)] bg-[var(--neon-purple)]/10"
+                        : "border-gray-700 text-gray-500"
                         }`}
                 >
                     Solana → Base
@@ -114,8 +114,8 @@ export function BridgeTab() {
                     <button
                         onClick={() => setToken("USDC")}
                         className={`flex-1 py-2 border-2 text-xs uppercase ${token === "USDC"
-                                ? "border-[var(--neon-green)] text-[var(--neon-green)]"
-                                : "border-gray-700 text-gray-500"
+                            ? "border-[var(--neon-green)] text-[var(--neon-green)]"
+                            : "border-gray-700 text-gray-500"
                             }`}
                     >
                         USDC
@@ -148,8 +148,8 @@ export function BridgeTab() {
                 <button
                     onClick={() => setIsPrivate(!isPrivate)}
                     className={`px-4 py-1 text-[10px] uppercase border ${isPrivate
-                            ? "border-[var(--neon-green)] text-[var(--neon-green)] bg-[var(--neon-green)]/10"
-                            : "border-gray-600 text-gray-500"
+                        ? "border-[var(--neon-green)] text-[var(--neon-green)] bg-[var(--neon-green)]/10"
+                        : "border-gray-600 text-gray-500"
                         }`}
                 >
                     {isPrivate ? "🔒 ON" : "OFF"}
@@ -189,10 +189,10 @@ export function BridgeTab() {
             {/* Progress Steps */}
             {status !== "idle" && status !== "completed" && (
                 <div className="mt-6 space-y-2">
-                    <StepIndicator label="Encrypting" active={status === "encrypting"} done={["wrapping", "bridging", "unwrapping", "completed"].includes(status)} />
-                    <StepIndicator label="Wrapping" active={status === "wrapping"} done={["bridging", "unwrapping", "completed"].includes(status)} />
-                    <StepIndicator label="Bridging" active={status === "bridging"} done={["unwrapping", "completed"].includes(status)} />
-                    <StepIndicator label="Unwrapping" active={status === "unwrapping"} done={status === "completed"} />
+                    <StepIndicator label="Encrypting" active={status === "encrypting"} done={["wrapping", "bridging", "unwrapping", "failed"].includes(status)} />
+                    <StepIndicator label="Wrapping" active={status === "wrapping"} done={["bridging", "unwrapping", "failed"].includes(status)} />
+                    <StepIndicator label="Bridging" active={status === "bridging"} done={["unwrapping", "failed"].includes(status)} />
+                    <StepIndicator label="Unwrapping" active={status === "unwrapping"} done={false} />
                 </div>
             )}
 
