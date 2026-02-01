@@ -1,66 +1,102 @@
-# **Inco Lite - Hardhat Template**
+# 🕹️ Retro Inco Confidential Swap
 
-This repository provides a **complete Hardhat setup** for testing **reencryption, decryption, and ciphertext formation** in smart contracts.
+> **Privacy-first DEX on Base Sepolia powered by Inco Network's FHE technology.**
 
-## **Setup Instructions**
+![Retro Inco Swap](https://placehold.co/1200x600/050510/00f0ff?text=RETRO+INCO+SWAP)
 
-Below, we run a local node and a local covalidator (taken from [the Docker Compose file](./docker-compose.yaml)), and run Hardhat tests against it.
+A decentralized exchange and private transfer application built with a cyberpunk/vaporwave aesthetic. This project demonstrates how to build confidentiality-enabled interaction on EVM chains using Inco's Fully Homomorphic Encryption (FHE).
 
-### **1. Clone the Repository**
-```sh
-git clone <your-repo-url>
-cd into_your_repo
-```
+## ✨ Features
 
-### **2. Install Dependencies**
-```sh
-pnpm install
-```
+### 🔒 Confidential Swaps
+- Swap **cUSDC** and **cETH** with completely encrypted amounts.
+- Input values are encrypted client-side using the Inco SDK.
+- On-chain balances remain hidden from the public eye.
 
-### **3. Run a local node**
+### 🕵️ Shadow Transfer
+- Send encrypted tokens to any address securely.
+- Uses `transfer(address, bytes)` overloaded function to handle encrypted inputs.
+- Only the sender and receiver can view the transferred value.
 
-The current instructions will run a local node and a local covalidator. If you are using this template against another network, e.g. Base Sepolia, skip this step.
+### 📼 Retro UI/UX
+- **CRT Scanline Effects**: Fully animated screen overlay for that 90s monitor feel.
+- **Neon Aesthetics**: High-contrast neon blue, purple, and green palette.
+- **Pixel Art**: Custom "Press Start 2P" typography and 8-bit design elements.
+- **Interactive**: Terminal-style inputs and glitch effects.
 
-```sh
-docker compose up
-```
+## 🛠️ Technology Stack
 
-### **3. Configure Environment Variables**  
+- **Frontend**: Next.js 14, Tailwind CSS, TypeScript
+- **Encryption**: `@inco/js` (FHE SDK)
+- **Blockchain**: Base Sepolia (Dapp), Inco Network (Confidential Computing)
+- **Contracts**: Solidity v0.8.20+, OpenZeppelin
+- **Libraries**: `wagmi`, `viem`, `@tanstack/react-query`
 
-Fill in your own information in the `.env` file, you can take this as example:
+## 🚀 Getting Started
 
-```plaintext
-# This should be a private key funded with native tokens.
-PRIVATE_KEY_ANVIL="0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"
-PRIVATE_KEY_BASE_SEPOLIA=""
+### Prerequisites
+- Node.js 18+
+- MetaMask Wallet (connected to Base Sepolia)
 
-# This should be a seed phrase used to test functionalities with different accounts.  
-# You can send funds from the main wallet to this whenever needed.
-SEED_PHRASE="garden cage click scene crystal fat message twice rubber club choice cool"
+### Installation
 
-# This should be an RPC URL provided by a proper provider  
-# that supports the eth_getLogs() and eth_getFilteredLogs() methods.
-LOCAL_CHAIN_RPC_URL="http://localhost:8545"
-BASE_SEPOLIA_RPC_URL="https://base-sepolia-rpc.publicnode.com"
-```
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/chiefmmorgs/inco-confidential-swap-.git
+   cd inco-confidential-swap-
+   ```
 
-### **4. Compile Smart Contracts**
-```sh
-pnpm hardhat compile
-```
+2. Install dependencies:
+   ```bash
+   cd frontend
+   npm install
+   # or
+   pnpm install
+   ```
 
-### **5. Run Tests**
-```sh
-pnpm hardhat test --network anvil
-```
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-Or, if running against another network, e.g. Base Sepolia, run
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-```sh
-pnpm hardhat test --network baseSepolia
-```
+## 📜 Smart Contracts (Base Sepolia)
 
-## **Features**
-- End-to-end testing of encryption, reencryption  and decryption functionalities.
-- Hardhat-based test framework.
-- Supports reencryption and ciphertext validation.
+| Contract | Address |
+|----------|---------|
+| **Confidential ETH** | `0x525c34cb249826f74352D086d494957920B2F2E4` |
+| **Confidential USDC** | `0x789d6e7f86641829636605d8f64483d735165d70` |
+| **Confidential Swap** | `0xfDE351E7d8B90731F2A70cf076A10f7605D4122d` |
+
+## ☀️ Cross-Chain Bridge (Base ↔ Solana)
+
+Private cross-chain swaps between **Base Sepolia** and **Solana Devnet** using Inco Lightning encryption.
+
+### How It Works
+1. **Encrypt**: Amount is encrypted using Inco FHE (Base) or Inco Lightning (Solana)
+2. **Bridge**: Relay Protocol transfers assets cross-chain
+3. **Unwrap**: Recipient can decrypt and access tokens on destination chain
+
+### Solana Devnet Setup
+- Install **Phantom** or **Solflare** wallet
+- Switch to **Devnet** network
+- Get test SOL from [Solana Faucet](https://faucet.solana.com/)
+
+| Component | Address/ID |
+|-----------|------------|
+| **Inco Lightning Program** | `5sjEbPiqgZrYwR31ahR6Uk9wf5awoX61YGg7jExQSwaj` |
+| **Confidential USDC (Solana)** | *Coming Soon* |
+
+## 🕹️ Controls
+
+- **Wrap**: Convert public ETH/USDC to private cETH/cUSDC.
+- **Swap**: Exchange encrypted tokens on Base.
+- **Send**: Transfer private tokens to another wallet.
+- **Unwrap**: Convert private tokens back to public ETH/USDC.
+- **Bridge**: Cross-chain private transfers between Base and Solana.
+- **Liquidity**: Add cETH/cUSDC to the pool (requires approval).
+
+---
+
+*Built with ❤️ for the Inco Network Hackathon*

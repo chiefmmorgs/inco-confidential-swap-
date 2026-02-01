@@ -1,0 +1,21 @@
+{
+    "name": "@inco-swap/sdk",
+    "version": "0.1.0",
+    "description": "TypeScript SDK for Inco Confidential Swap - Private AMM on Solana",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "tsc",
+        "dev": "tsc --watch"
+    },
+    "dependencies": {
+        "@coral-xyz/anchor": "^0.31.1",
+        "@solana/web3.js": "^1.95.0",
+        "@solana/spl-token": "^0.4.0",
+        "bs58": "^5.0.0"
+    },
+    "devDependencies": {
+        "typescript": "^5.3.0",
+        "@types/node": "^20.0.0"
+    }
+}
