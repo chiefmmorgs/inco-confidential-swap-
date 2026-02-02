@@ -4,7 +4,7 @@
 
 
 
-A decentralized exchange and private transfer application built with a cyberpunk/vaporwave aesthetic. This project demonstrates how to build confidentiality-enabled interaction on EVM chains using Inco's Fully Homomorphic Encryption (FHE).
+A decentralized exchange and private transfer application. This project demonstrates how to build confidentiality-enabled interaction on EVM chains and solana using Inco's Fully Homomorphic Encryption (FHE).
 
 ## Features
 
