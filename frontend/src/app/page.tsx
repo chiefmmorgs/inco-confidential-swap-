@@ -52,9 +52,6 @@ export default function Home() {
   const [isAddingLiq, setIsAddingLiq] = useState(false);
 
   // Solana Liquidity Management State
-  const [solLiqSol, setSolLiqSol] = useState("");
-  const [solLiqUsdc, setSolLiqUsdc] = useState("");
-  const [isAddingSolanaLiq, setIsAddingSolanaLiq] = useState(false);
 
   // Send (Private Transfer) State
   const [sendRecipient, setSendRecipient] = useState("");
@@ -1203,41 +1200,7 @@ export default function Home() {
     }
   };
 
-  // Solana Add Liquidity handler - adds cSOL and cUSDC to pool
-  const handleAddSolanaLiquidity = async () => {
-    if (!solanaPublicKey || !solLiqSol || !solLiqUsdc) {
-      alert("Please connect wallet and enter amounts for both cSOL and cUSDC");
-      return;
-    }
 
-    setIsAddingSolanaLiq(true);
-    try {
-      // In this demo, swaps work via direct minting (infinite liquidity)
-      // Real pool-based swaps would require an AMM program with proper reserves
-
-      // For now, we simulate liquidity tracking locally
-      const solAmount = parseFloat(solLiqSol);
-      const usdcAmount = parseFloat(solLiqUsdc);
-
-      // Store in localStorage for display purposes
-      const currentSolLiq = parseFloat(localStorage.getItem('solana_pool_sol') || '0');
-      const currentUsdcLiq = parseFloat(localStorage.getItem('solana_pool_usdc') || '0');
-
-      localStorage.setItem('solana_pool_sol', (currentSolLiq + solAmount).toString());
-      localStorage.setItem('solana_pool_usdc', (currentUsdcLiq + usdcAmount).toString());
-
-      alert(`✅ Liquidity Recorded!\n\n💧 Pool now has:\n• ${(currentSolLiq + solAmount).toFixed(4)} cSOL\n• ${(currentUsdcLiq + usdcAmount).toFixed(2)} cUSDC\n\n📌 Note: In this demo, swaps use infinite minting.\nFor production, you'd need a proper AMM with reserves.`);
-
-      // Clear inputs
-      setSolLiqSol("");
-      setSolLiqUsdc("");
-    } catch (error: any) {
-      console.error("Add Solana liquidity error:", error);
-      alert(`Failed: ${error.message || "Unknown error"}`);
-    } finally {
-      setIsAddingSolanaLiq(false);
-    }
-  };
 
 
 
@@ -2221,50 +2184,7 @@ export default function Home() {
           </div>
 
           {/* Solana Liquidity Pool Control */}
-          {solanaConnected && (
-            <div className="border-2 border-[var(--neon-green)]/30 p-6 bg-[#050510] mt-6">
-              <h2 className="text-lg text-[var(--neon-green)] mb-6 uppercase border-b border-[var(--neon-green)]/30 pb-2">
-                Solana Liquidity Pool <span className="text-xs text-gray-500">(cSOL/cUSDC)</span>
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                  <label className="text-[10px] text-[var(--neon-green)]/70 uppercase mb-2 block">cSOL Reserve</label>
-                  <div className="flex gap-2">
-                    <input
-                      type="number"
-                      value={solLiqSol}
-                      onChange={(e) => setSolLiqSol(e.target.value)}
-                      className="flex-1 bg-black border border-[var(--neon-green)]/30 p-2 text-white text-sm focus:border-[var(--neon-green)] focus:outline-none"
-                      placeholder="Amount"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label className="text-[10px] text-[var(--neon-green)]/70 uppercase mb-2 block">cUSDC Reserve</label>
-                  <div className="flex gap-2">
-                    <input
-                      type="number"
-                      value={solLiqUsdc}
-                      onChange={(e) => setSolLiqUsdc(e.target.value)}
-                      className="flex-1 bg-black border border-[var(--neon-green)]/30 p-2 text-white text-sm focus:border-[var(--neon-green)] focus:outline-none"
-                      placeholder="Amount"
-                    />
-                  </div>
-                </div>
-              </div>
 
-              <button
-                onClick={handleAddSolanaLiquidity}
-                disabled={isAddingSolanaLiq || !solanaConnected}
-                className="mt-6 w-full py-3 border-2 border-dashed border-[var(--neon-green)]/30 text-[var(--neon-green)]/50 text-xs uppercase hover:border-[var(--neon-green)] hover:text-[var(--neon-green)] transition-all disabled:opacity-50"
-              >
-                {isAddingSolanaLiq ? "INJECTING..." : "INJECT SOLANA LIQUIDITY"}
-              </button>
-              <p className="text-[8px] text-gray-600 text-center mt-2">
-                SOL/USD Price: ~$200 (used for swap calculations)
-              </p>
-            </div>
-          )}
         </div>
       </div>
     </main>
