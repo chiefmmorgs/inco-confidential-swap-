@@ -1,42 +1,31 @@
-# 🕹️ Retro Inco Confidential Swap
+# Inco Confidential Swap
 
-> **Privacy-first DEX on Base Sepolia powered by Inco Network's FHE technology.**
+> **Privacy-first DEX on Base Sepolia and solana devnet powered by Inco Network's FHE technology.**
 
-![Retro Inco Swap](https://placehold.co/1200x600/050510/00f0ff?text=RETRO+INCO+SWAP)
+
 
 A decentralized exchange and private transfer application built with a cyberpunk/vaporwave aesthetic. This project demonstrates how to build confidentiality-enabled interaction on EVM chains using Inco's Fully Homomorphic Encryption (FHE).
 
-## ✨ Features
+## Features
 
-### 🔒 Confidential Swaps
-- Swap **cUSDC** and **cETH** with completely encrypted amounts.
+###  Confidential Swaps
+- Swap **cUSDC** and **cETH** or **cUSDC** and **cSOL**  with completely encrypted amounts.
 - Input values are encrypted client-side using the Inco SDK.
 - On-chain balances remain hidden from the public eye.
 
-### 🕵️ Shadow Transfer
+###  Shadow Transfer
 - Send encrypted tokens to any address securely.
 - Uses `transfer(address, bytes)` overloaded function to handle encrypted inputs.
 - Only the sender and receiver can view the transferred value.
 
-### 📼 Retro UI/UX
-- **CRT Scanline Effects**: Fully animated screen overlay for that 90s monitor feel.
-- **Neon Aesthetics**: High-contrast neon blue, purple, and green palette.
-- **Pixel Art**: Custom "Press Start 2P" typography and 8-bit design elements.
-- **Interactive**: Terminal-style inputs and glitch effects.
 
-## 🛠️ Technology Stack
 
-- **Frontend**: Next.js 14, Tailwind CSS, TypeScript
-- **Encryption**: `@inco/js` (FHE SDK)
-- **Blockchain**: Base Sepolia (Dapp), Inco Network (Confidential Computing)
-- **Contracts**: Solidity v0.8.20+, OpenZeppelin
-- **Libraries**: `wagmi`, `viem`, `@tanstack/react-query`
-
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Node.js 18+
 - MetaMask Wallet (connected to Base Sepolia)
+- phantom wallet (CONNECT TO SOLANA DEVNET)
 
 ### Installation
 
@@ -61,7 +50,7 @@ A decentralized exchange and private transfer application built with a cyberpunk
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## 📜 Smart Contracts (Base Sepolia)
+## Smart Contracts (Base Sepolia)
 
 | Contract | Address |
 |----------|---------|
@@ -69,7 +58,7 @@ A decentralized exchange and private transfer application built with a cyberpunk
 | **Confidential USDC** | `0x789d6e7f86641829636605d8f64483d735165d70` |
 | **Confidential Swap** | `0xfDE351E7d8B90731F2A70cf076A10f7605D4122d` |
 
-## ☀️ Cross-Chain Bridge (Base ↔ Solana)
+##  Cross-Chain Bridge (Base ↔ Solana)
 
 Private cross-chain swaps between **Base Sepolia** and **Solana Devnet** using Inco Lightning encryption.
 
@@ -85,18 +74,19 @@ Private cross-chain swaps between **Base Sepolia** and **Solana Devnet** using I
 
 | Component | Address/ID |
 |-----------|------------|
-| **Inco Lightning Program** | `5sjEbPiqgZrYwR31ahR6Uk9wf5awoX61YGg7jExQSwaj` |
-| **Confidential USDC (Solana)** | *Coming Soon* |
+| **Inco Lightning Program** | `h6T7wsEJWMxN2uEZUc4SipEd8Zmz2DWasCDopindjC5` |
+| **Confidential USDC (Solana)** | `G7EzuDs86oQX7ckv5AheQTBgas4UYFqD1Zorx3V3FhdK` |
+| **Confidential SOL (Solana)** | `J7bYB7CMVKnakNZxeDY6eG7KTHVryPdHmXdR3cbWRV4F` |
+| **USDC Vault (Solana)** | `HgE9MCv5umddqVHaytfEMm4fNfquqRwW38Sa34DHgp9s` |
 
-## 🕹️ Controls
 
-- **Wrap**: Convert public ETH/USDC to private cETH/cUSDC.
-- **Swap**: Exchange encrypted tokens on Base.
+## Controls
+
+- **Wrap**: Convert public ETH/USDC OR SOL/USDC to private cETH/cUSDC OR cSOL/cUSDC.
+- **Swap**: Exchange encrypted tokens on Base OR solana.
 - **Send**: Transfer private tokens to another wallet.
-- **Unwrap**: Convert private tokens back to public ETH/USDC.
-- **Bridge**: Cross-chain private transfers between Base and Solana.
+- **Unwrap**: Convert private tokens back to public ETH/USDC and SOL/USDC.
+- **Bridge**: Cross-chain private transfers between Base and Solana [SOON].
 - **Liquidity**: Add cETH/cUSDC to the pool (requires approval).
 
 ---
-
-*Built with ❤️ for the Inco Network Hackathon*
